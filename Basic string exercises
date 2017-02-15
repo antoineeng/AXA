@@ -1,0 +1,85 @@
+def donuts(count):
+    result = []
+    if count >= 10:
+        result = 'many'
+    else:
+        result = str(count)
+    return 'Number of donuts: '+result
+
+print(donuts(5))
+print(donuts(10))
+
+
+def both_ends(s):
+    result = ''
+    if len(s) > 2:
+        result = s[:2]+s[-2:]
+    return result
+
+print(both_ends('spring'))
+print(both_ends('a'))
+print(both_ends('abc'))
+print(both_ends('abcd'))
+
+
+def fix_start(s):
+    result = ''
+    first_char = s[:1]
+    result = first_char + s.replace(first_char,'*')[1:]
+    return result
+
+print(fix_start('babble'))
+print(fix_start('this is a test for this exercise'))
+
+
+def mix_up(a, b):
+    return b[:2] + a[2:] + ' ' + a[:2] + b[2:]
+
+print(mix_up('mix', 'pod'))
+print(mix_up('dog', 'dinner'))
+
+
+
+def verbing(s):
+    result = ''
+    if len(s) <= 3:
+        result=s
+    else:
+        if s[-3:] == 'ing':
+            result=s+'ly'
+        else:
+            result=s+'ing'
+    return result
+
+print(verbing('hail'))
+print(verbing('swiming'))
+print(verbing('do'))
+
+
+
+def not_bad(s):
+    result = ''
+    pos_not = (s.find('not'))
+    pos_bad = (s.find('bad'))
+    if pos_not < pos_bad:
+        result = s[:pos_not] + 'good' + s[pos_bad+3:]
+    else:
+        result = s
+    return result
+
+print(not_bad('This movie is not so bad'))
+print(not_bad('This dinner is not that bad!'))
+print(not_bad('This tea is not hot'))
+print(not_bad('It''s bad yet not'))
+
+
+def front_back(a, b):    
+    def front(s):
+        return s[:round((len(s))/2)]
+    def back(s):
+        return s[-int(len(s)/2):]
+    return front(a) + front(b) + back(a) + back(b)
+
+print(front_back('abcd', 'xy'))
+print(front_back('abcde', 'xyz'))
+print(front_back('Kitten', 'Donut'))
